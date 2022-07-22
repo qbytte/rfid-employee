@@ -26,6 +26,9 @@ dist-ssr
 # Firebase cache
 .firebase/
 
+# Firebase client config
+client/src/firebase/config.js
+
 # Firebase config
 
 # Uncomment this if you'd like others to create their own Firebase project.
