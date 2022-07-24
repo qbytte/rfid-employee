@@ -1,0 +1,26 @@
+.Form {
+    text-align: center;
+}
+
+.Form-label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.Form-input {
+    width: 50%;
+}
+
+.Form-input.large {
+    width: 100%;
+}
+
+.Form-label div {
+    display: flex;
+    gap: 10px;
+}
+
+.Form-submit {
+    margin-top: 94px;
+}
