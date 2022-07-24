@@ -24,6 +24,11 @@
     border-bottom: solid 1px #8E8E8E;
     background: #F8F8F8;
     color: #777777;
+    transition: background 150ms;
+}
+
+.Form-input:focus {
+    background: #dddddd;
 }
 
 .Form-input::placeholder {
@@ -40,7 +45,7 @@
 }
 
 .Form-submit {
-    margin-top: 92px;
+    margin-top: 6vh;
     background: none;
     outline: none;
     border: none;
