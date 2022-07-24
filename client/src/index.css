@@ -13,6 +13,10 @@ body {
   font-size: 1.6rem;
 }
 
+ul {
+  list-style: none;
+}
+
 #root {
   min-height: 100vh;
 }
