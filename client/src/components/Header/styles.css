@@ -1,0 +1,19 @@
+.Header {
+    background: #343633;
+    height: 168px;
+}
+
+.Header-back {
+    margin-left: 40px;
+    margin-top: 50px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.Header-title {
+    padding: 40px;
+    color: #FFFDFD;
+    font-weight: 300;
+    width: 300px;
+}
