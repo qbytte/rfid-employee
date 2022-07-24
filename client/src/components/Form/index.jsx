@@ -38,7 +38,7 @@ const Form = () => {
         </div>
       </label>
       <button className="Form-submit" type="submit">
-        <FaCheckCircle color="#7692FF" />
+        <FaCheckCircle size={44} color="#7692FF" />
       </button>
     </form>
   );
