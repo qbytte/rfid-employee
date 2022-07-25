@@ -4,7 +4,7 @@ import {
   ActiveEmps,
   EditEmp,
   EmpDetails,
-  Logs,
+  EmpLogs,
   RegisterEmp,
   WorkedHours,
 } from "./pages";
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" component={ActiveEmps} />
         <Route path="/edit/:id" component={EditEmp} />
         <Route path="/details/:id" component={EmpDetails} />
-        <Route path="/logs" component={Logs} />
+        <Route path="/logs" component={EmpLogs} />
         <Route path="/register" component={RegisterEmp} />
         <Route path="/hours" component={WorkedHours} />
       </Switch>

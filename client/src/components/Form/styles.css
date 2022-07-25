@@ -25,6 +25,7 @@
     background: #F8F8F8;
     color: #777777;
     transition: background 150ms;
+    -webkit-appearance: none;
 }
 
 .Form-input:focus {
@@ -49,4 +50,12 @@
     background: none;
     outline: none;
     border: none;
+}
+
+.Form-submit:hover {
+    cursor: pointer;
+}
+
+.Form-submit:active {
+    opacity: 0.5;
 }
