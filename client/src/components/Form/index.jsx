@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { database } from "../../firebase/config";
 import { set, ref } from "firebase/database";
+import moment from "moment";
 import "./styles.css";
 
 const Form = () => {
@@ -117,6 +118,7 @@ const Form = () => {
             className="Form-input"
             type="date"
             required
+            value={moment().format("YYYY-MM-DD")}
           />
         </div>
       </label>
