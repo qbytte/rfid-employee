@@ -113,7 +113,7 @@ const Form = () => {
             className="Form-input"
             type="date"
             required
-            value={moment().format("YYYY-MM-DD")}
+            defaultValue={moment().format("YYYY-MM-DD")}
           />
         </div>
       </label>

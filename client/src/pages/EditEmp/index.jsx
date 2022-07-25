@@ -2,29 +2,33 @@ import { Header, EditPhoto } from "../../components";
 import { useState, useEffect } from "react";
 import { useRoute } from "wouter";
 import { database } from "../../firebase/config";
-import { ref, child, get } from "firebase/database";
+import { ref, child, get, update } from "firebase/database";
 import { storage } from "../../firebase/config";
 import {
   getDownloadURL,
   ref as refStorage,
   uploadBytes,
 } from "firebase/storage";
+import "./styles.css";
 
 const EditEmp = () => {
   const [employee, setEmployee] = useState({});
-  const [match, params] = useRoute("/edit/:id");
+  const [_match, params] = useRoute("/edit/:id");
 
   const onSubmitImg = (file) => {
-    const storageRef = refStorage(storage, "employeePictures");
+    const storageRef = refStorage(storage, params.id);
     uploadBytes(storageRef, file)
-      .then((snapshot) => {
-        console.log(file)
+      .then((_snapshot) => {
+        console.log(file);
         console.log("Uploaded file");
       })
       .then(() => {
         getDownloadURL(storageRef)
           .then((url) => {
             console.log(url);
+            const dbRef = ref(database, `employees/${params.id}`);
+            update(dbRef, { imgUrl: url });
+            setEmployee({ ...employee, imgUrl: url });
           })
           .catch((error) => {
             console.error(error);

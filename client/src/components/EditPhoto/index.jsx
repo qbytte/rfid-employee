@@ -5,10 +5,6 @@ import "./styles.css"
 const EditPhoto = ({ imgUrl, onSubmitImg }) => {
   const fileRef = useRef(null);
 
-  const onChange = () => {
-    console.log()
-  }
-
   return (
     <div className="EditPhoto">
       <div className="EditPhoto-img">

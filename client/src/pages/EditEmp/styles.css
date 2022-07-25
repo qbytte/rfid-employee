@@ -1,0 +1,6 @@
+.EditPhoto {
+    position: absolute;
+    top: 96px;
+    left: 50%;
+    transform: translate(-50%);
+}
