@@ -25,16 +25,15 @@ const Form = () => {
       email: values.email,
       department: values.department,
       startDate: values.startDate,
-      imgUrl: "https://imgur.com/pUHx2hC",
+      imgUrl:
+        "https://firebasestorage.googleapis.com/v0/b/rfid-empoyee.appspot.com/o/placeholder.png?alt=media&token=6a9e0143-c51d-4e0e-93cc-9bbf9d5aac3c",
       start: "",
       finish: "",
       date: "",
-      atWork: false
-    })
-    .then(() => {
-      setLocation(`details/${values.id}`)
-    })
-
+      atWork: false,
+    }).then(() => {
+      setLocation(`details/${values.id}`);
+    });
   };
 
   return (
@@ -86,11 +85,7 @@ const Form = () => {
         </div>
       </label>
       <label className="Form-label">
-        {errors.email && (
-          <strong>
-            Please enter a valid email.
-          </strong>
-        )}
+        {errors.email && <strong>Please enter a valid email.</strong>}
         <span>Employee email:</span>
         <input
           {...register("email", {
