@@ -28,6 +28,11 @@
     -webkit-appearance: none;
 }
 
+.Form-input:disabled {
+    background-color: #EEEEEE;
+    border: none;
+}
+
 .Form-input:focus {
     background: #dddddd;
 }

@@ -1,4 +1,4 @@
-import { Header, EditPhoto } from "../../components";
+import { Header, EditPhoto, Form } from "../../components";
 import { useState, useEffect } from "react";
 import { useRoute } from "wouter";
 import { database } from "../../firebase/config";
@@ -57,6 +57,7 @@ const EditEmp = () => {
     <>
       <Header />
       <EditPhoto imgUrl={employee.imgUrl} onSubmitImg={onSubmitImg} />
+      <Form edit employee={employee} id={params.id} />
     </>
   );
 };

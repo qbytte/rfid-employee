@@ -1,19 +1,35 @@
 import { FaCheckCircle } from "react-icons/fa";
+import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { database } from "../../firebase/config";
-import { set, ref } from "firebase/database";
+import { set, ref, update } from "firebase/database";
 import moment from "moment";
 import "./styles.css";
 
-const Form = () => {
+const Form = ({ edit, employee, id }) => {
   const [_location, setLocation] = useLocation();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
+
+  useEffect(() => {
+    if (employee) {
+      reset({
+        firstName: employee.firstName,
+        lastName: employee.lastName,
+        id: id,
+        phone: employee.phone,
+        email: employee.email,
+        department: employee.department,
+        startDate: employee.startDate,
+      });
+    }
+  }, [employee]);
 
   const onSubmit = (values) => {
     console.table(values);
@@ -36,8 +52,25 @@ const Form = () => {
     });
   };
 
+  const onUpdate = (values) => {
+    console.table(values);
+    update(ref(database, `employees/${values.id}`), {
+      firstName: values.firstName,
+      lastName: values.lastName,
+      phone: values.phone,
+      email: values.email,
+      department: values.department,
+      startDate: values.startDate,
+    }).then(() => {
+      setLocation(`details/${values.id}`);
+    });
+  };
+
   return (
-    <form className="Form" onSubmit={handleSubmit(onSubmit)}>
+    <form
+      className="Form"
+      onSubmit={edit ? handleSubmit(onUpdate) : handleSubmit(onSubmit)}
+    >
       <label className="Form-label">
         <span>Employee name:</span>
         <div>
@@ -69,6 +102,7 @@ const Form = () => {
             placeholder="ID"
             required
             maxLength={8}
+            disabled={edit}
           />
           <input
             {...register("phone", {
@@ -113,13 +147,14 @@ const Form = () => {
             className="Form-input"
             type="date"
             required
-            defaultValue={moment().format("YYYY-MM-DD")}
+            defaultValue={!edit && moment().format("YYYY-MM-DD")}
           />
         </div>
       </label>
       <button className="Form-submit" type="submit">
         <FaCheckCircle size={40} color="#7692FF" />
       </button>
+      <button type="button">fuder</button>
     </form>
   );
 };
