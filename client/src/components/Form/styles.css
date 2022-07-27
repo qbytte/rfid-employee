@@ -1,0 +1,72 @@
+.Form {
+    text-align: center;
+}
+
+.Form-label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.Form-label span {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #211A1D;
+}
+
+.Form-input {
+    width: 50%;
+    height: 40px;
+    padding-inline: 12px;
+    outline: none;
+    border: none;
+    border-bottom: solid 1px #8E8E8E;
+    background: #F8F8F8;
+    color: #777777;
+    transition: background 150ms;
+    -webkit-appearance: none;
+}
+
+.Form-input:disabled {
+    background-color: #EEEEEE;
+    border: none;
+}
+
+.Form-input:focus {
+    background: #dddddd;
+}
+
+.Form-input::placeholder {
+    color: inherit;
+}
+
+.Form-input.large {
+    width: 100%;
+}
+
+.Form-label div {
+    display: flex;
+    gap: 10px;
+}
+
+.Form-btn-container {
+    margin-top: 6vh;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.Form-submit, .Form-delete {
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.Form-submit:hover, .Form-delete:hover {
+    cursor: pointer;
+}
+
+.Form-submit:active, .Form-delete:active {
+    opacity: 0.5;
+}

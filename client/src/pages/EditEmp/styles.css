@@ -1,0 +1,10 @@
+.EditPhoto {
+    position: absolute;
+    top: 96px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.Form.Form-edit {
+    margin-top: 12vh;
+}
