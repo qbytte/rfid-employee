@@ -50,17 +50,23 @@
     gap: 10px;
 }
 
-.Form-submit {
+.Form-btn-container {
     margin-top: 6vh;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.Form-submit, .Form-delete {
     background: none;
     outline: none;
     border: none;
 }
 
-.Form-submit:hover {
+.Form-submit:hover, .Form-delete:hover {
     cursor: pointer;
 }
 
-.Form-submit:active {
+.Form-submit:active, .Form-delete:active {
     opacity: 0.5;
 }

@@ -1,9 +1,11 @@
-import { FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle, FaTrashAlt } from "react-icons/fa";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useForm } from "react-hook-form";
 import { database } from "../../firebase/config";
-import { set, ref, update } from "firebase/database";
+import { ref, set, update, remove } from "firebase/database";
+import { storage } from "../../firebase/config";
+import { ref as refStorage, deleteObject } from "firebase/storage";
 import moment from "moment";
 import "./styles.css";
 
@@ -48,7 +50,7 @@ const Form = ({ edit, employee, id }) => {
       date: "",
       atWork: false,
     }).then(() => {
-      setLocation(`details/${values.id}`);
+      setLocation(`/details/${values.id}`);
     });
   };
 
@@ -62,13 +64,24 @@ const Form = ({ edit, employee, id }) => {
       department: values.department,
       startDate: values.startDate,
     }).then(() => {
-      setLocation(`details/${values.id}`);
+      setLocation(`/details/${values.id}`);
     });
+  };
+
+  const onDelete = () => {
+    const desertRef = refStorage(storage, id);
+    deleteObject(desertRef)
+      .then(() => {
+        remove(ref(database, `employees/${id}`)).then(setLocation("/"));
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
     <form
-      className="Form"
+      className={!edit ? "Form" : "Form Form-edit"}
       onSubmit={edit ? handleSubmit(onUpdate) : handleSubmit(onSubmit)}
     >
       <label className="Form-label">
@@ -151,10 +164,16 @@ const Form = ({ edit, employee, id }) => {
           />
         </div>
       </label>
-      <button className="Form-submit" type="submit">
-        <FaCheckCircle size={40} color="#7692FF" />
-      </button>
-      <button type="button">fuder</button>
+      <div className="Form-btn-container">
+        <button className="Form-submit" type="submit">
+          <FaCheckCircle size={40} color="#7692FF" />
+        </button>
+        {edit && (
+          <button className="Form-delete" type="button" onClick={onDelete}>
+            <FaTrashAlt color="#FF5D73" size={35} />
+          </button>
+        )}
+      </div>
     </form>
   );
 };
