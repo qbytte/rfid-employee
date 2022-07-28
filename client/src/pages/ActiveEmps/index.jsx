@@ -1,6 +1,10 @@
+import { Footer } from "../../components"
 const ActiveEmployees = () => {
   return (
-    <div>ActiveEmployees</div>
+    <div>
+      <p>ActiveEmployees</p>
+      <Footer />
+    </div>
   )
 }
 

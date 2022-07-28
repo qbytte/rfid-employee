@@ -1,4 +1,4 @@
-import { Header, Form } from "../../components";
+import { Header, Form, Footer } from "../../components";
 import "./styles.css"
 
 const RegisterEmp = () => {
@@ -6,6 +6,7 @@ const RegisterEmp = () => {
     <>
       <Header title={"Register new employee"} />
       <Form />
+      <Footer/>
     </>
   );
 };
