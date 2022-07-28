@@ -1,6 +1,11 @@
+import { Footer } from "../../components"
+
 const Logs = () => {
   return (
-    <div>Logs</div>
+    <div>
+      <p>Logs</p>
+      <Footer />
+    </div>
   )
 }
 

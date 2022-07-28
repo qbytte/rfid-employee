@@ -1,6 +1,11 @@
+import { Footer } from "../../components"
+
 const WorkedHours = () => {
   return (
-    <div>WorkedHours</div>
+    <div>
+      <p>WorkedHours</p>
+      <Footer />
+    </div>
   )
 }
 
