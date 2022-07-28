@@ -1,20 +1,19 @@
-const Employee = () => {
+const Employee = ({ imgUrl, atWork, firstName, lastName, id }) => {
     return (
         <div className='Employee'>
             <div>
                 <div className="Employee-photo">
-                    <img/>
+                    <img src={imgUrl} />
                 </div>
-                <p className="Employee-status">Status: online</p>
+                <p className="Employee-status">Status: {atWork}</p>
             </div>
             <div>
-                <p className='Employee-name'>nombre</p>
-                <p className='Employee-id'>id</p>
+                <p className='Employee-name'>{`${firstName} ${lastName}`}</p>
+                <p className='Employee-id'>{id}</p>
             </div>
         </div>
     )
 }
-
 
 export default Employee
 
