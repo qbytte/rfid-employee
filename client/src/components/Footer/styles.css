@@ -1,0 +1,21 @@
+.Footer {
+  background: #eeeeee;
+  height: 55px;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.Footer ul {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.Footer-btn {
+  background: none;
+  outline: none;
+  border: none;
+}
