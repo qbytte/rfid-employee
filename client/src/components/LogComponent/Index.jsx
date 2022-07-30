@@ -1,23 +1,17 @@
+import "./styles.css";
 
 const LogComponent = ({ id, shiftstart, shiftend, date }) => {
   return (
-    <div>
-
-      <p>
-        123456
-      </p>
-      <p>
-        00:00
-      </p>
-      <p>
-        08:00
-      </p>
-      <p>
-        27/07/2022
-      </p>
-
+    <div className="LogComponent">
+      <p>{id}</p>
+      <span className="LogComponent-span">•</span>
+      <p>{shiftstart} </p>
+      <span className="LogComponent-span">•</span>
+      <p>{shiftend}</p>
+      <span className="LogComponent-span">•</span>
+      <p>{date} </p>
     </div>
-  )
-}
+  );
+};
 
-export default LogComponent
+export default LogComponent;
