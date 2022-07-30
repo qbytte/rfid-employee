@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Employee, Footer } from "../../components";
+import { Header, Employee, Footer } from "../../components";
 import { database } from "../../firebase/config";
 import { ref, onValue, set } from "firebase/database";
+import "./styles.css"
 
 const ActiveEmployees = () => {
   const [emps, setEmps] = useState([]);
@@ -27,22 +28,26 @@ const ActiveEmployees = () => {
 
   useEffect(() => {
     fetchData();
+    console.log(emps);
   }, []);
 
   return (
     <div>
-      {emps.map((emp) => {
-        return (
-          <Employee
-            id={emp.id}
-            firstName={emp.firstName}
-            lastName={emp.lastName}
-            atWork={emp.atWork}
-            imgUrl={emp.imgUrl}
-            key={emp.id}
-          />
-        );
-      })}
+      <Header title="Acttive employees" />
+      <div className="ActiveEmps-list">
+        {emps.map((emp) => {
+          return (
+            <Employee
+              id={emp.id}
+              firstName={emp.firstName}
+              lastName={emp.lastName}
+              atWork={emp.atWork}
+              imgUrl={emp.imgUrl}
+              key={emp.id}
+            />
+          );
+        })}
+      </div>
       <Footer />
     </div>
   );
