@@ -22,6 +22,7 @@ const ActiveEmployees = () => {
           imgUrl: value.imgUrl,
         });
       }
+      array.sort((a, b) => +b.atWork - a.atWork);
       setEmps(array);
     });
   };
@@ -33,7 +34,7 @@ const ActiveEmployees = () => {
 
   return (
     <div>
-      <Header title="Acttive employees" />
+      <Header title="Active employees" />
       <div className="ActiveEmps-list">
         {emps.map((emp) => {
           return (
