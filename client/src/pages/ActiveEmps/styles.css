@@ -1,0 +1,10 @@
+.ActiveEmps-list {
+  width: 86vw;
+  margin: 0 auto;
+  margin-bottom: 8vh;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
