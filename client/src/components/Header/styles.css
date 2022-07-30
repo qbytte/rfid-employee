@@ -1,6 +1,8 @@
 .Header {
     background: #343633;
     height: 168px;
+    position: sticky;
+    top: 0;
 }
 
 .Header-back {
