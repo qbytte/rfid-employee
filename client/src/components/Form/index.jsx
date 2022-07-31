@@ -70,13 +70,21 @@ const Form = ({ edit, employee, id }) => {
 
   const onDelete = () => {
     const desertRef = refStorage(storage, id);
-    deleteObject(desertRef)
-      .then(() => {
-        remove(ref(database, `employees/${id}`)).then(setLocation("/"));
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+
+    if (
+      employee.imgUrl ===
+      "https://firebasestorage.googleapis.com/v0/b/rfid-empoyee.appspot.com/o/placeholder.png?alt=media&token=6a9e0143-c51d-4e0e-93cc-9bbf9d5aac3c"
+    ) {
+      remove(ref(database, `employees/${id}`)).then(setLocation("/"));
+    } else {
+      deleteObject(desertRef)
+        .then(() => {
+          remove(ref(database, `employees/${id}`)).then(setLocation("/"));
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   };
 
   return (
