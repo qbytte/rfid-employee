@@ -8,3 +8,10 @@
   gap: 24px;
 }
 
+.ActiveEmps-create-emp {
+  margin: 0 auto;
+  color: #4E4E4E;
+  background: #EEEEEE;
+  padding: 14px;
+  border-radius: 8px;
+}
