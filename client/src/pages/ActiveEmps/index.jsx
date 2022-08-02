@@ -26,10 +26,10 @@ const ActiveEmployees = () => {
         }
         array.sort((a, b) => +b.atWork - a.atWork);
         setEmps(array);
-        setExist(true)
+        setExist(true);
       } else {
         setExist(false);
-        console.log("no hay emps")
+        console.log("no hay emps");
       }
     });
   };
@@ -43,18 +43,24 @@ const ActiveEmployees = () => {
     <div>
       <Header title="Active employees" />
       <div className="ActiveEmps-list">
-        {exist ? emps.map((emp) => {
-          return (
-            <Employee
-              id={emp.id}
-              firstName={emp.firstName}
-              lastName={emp.lastName}
-              atWork={emp.atWork}
-              imgUrl={emp.imgUrl}
-              key={emp.id}
-            />
-          );
-        }) : <>Create your first employee</>}
+        {exist ? (
+          emps.map((emp) => {
+            return (
+              <Employee
+                id={emp.id}
+                firstName={emp.firstName}
+                lastName={emp.lastName}
+                atWork={emp.atWork}
+                imgUrl={emp.imgUrl}
+                key={emp.id}
+              />
+            );
+          })
+        ) : (
+          <div className="ActiveEmps-create-emp">
+            Create your first employee
+          </div>
+        )}
       </div>
       <Footer />
     </div>

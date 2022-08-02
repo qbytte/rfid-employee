@@ -1,12 +1,12 @@
 .LogComponent {
   display: flex;
   gap: 8px;
-  background-color: #eeeeee;
+  background-color: #EEEEEE;
   padding: 14px;
   justify-content: center;
   border-radius: 6px;
 }
 
 .LogComponent-span {
-  color: #a1a1a1;
+  color: #A1A1A1;
 }
