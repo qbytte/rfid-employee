@@ -2,28 +2,35 @@ import { useState, useEffect } from "react";
 import { Header, Employee, Footer } from "../../components";
 import { database } from "../../firebase/config";
 import { ref, onValue, set } from "firebase/database";
-import "./styles.css"
+import "./styles.css";
 
 const ActiveEmployees = () => {
   const [emps, setEmps] = useState([]);
+  const [exist, setExist] = useState(false);
 
   const fetchData = () => {
     const employeesRef = ref(database, "employees/");
     onValue(employeesRef, (snapshot) => {
-      const data = snapshot.val();
-      const array = [];
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        const array = [];
 
-      for (const [key, value] of Object.entries(data)) {
-        array.push({
-          id: key,
-          firstName: value.firstName,
-          lastName: value.lastName,
-          atWork: value.atWork,
-          imgUrl: value.imgUrl,
-        });
+        for (const [key, value] of Object.entries(data)) {
+          array.push({
+            id: key,
+            firstName: value.firstName,
+            lastName: value.lastName,
+            atWork: value.atWork,
+            imgUrl: value.imgUrl,
+          });
+        }
+        array.sort((a, b) => +b.atWork - a.atWork);
+        setEmps(array);
+        setExist(true)
+      } else {
+        setExist(false);
+        console.log("no hay emps")
       }
-      array.sort((a, b) => +b.atWork - a.atWork);
-      setEmps(array);
     });
   };
 
@@ -36,7 +43,7 @@ const ActiveEmployees = () => {
     <div>
       <Header title="Active employees" />
       <div className="ActiveEmps-list">
-        {emps.map((emp) => {
+        {exist ? emps.map((emp) => {
           return (
             <Employee
               id={emp.id}
@@ -47,7 +54,7 @@ const ActiveEmployees = () => {
               key={emp.id}
             />
           );
-        })}
+        }) : <>Create your first employee</>}
       </div>
       <Footer />
     </div>
