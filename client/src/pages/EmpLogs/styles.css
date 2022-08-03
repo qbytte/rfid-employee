@@ -1,0 +1,20 @@
+.Emp-Logs-header {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 24px;
+    height: 54px;
+    width: 100%;
+    background: #EEEEEE;
+    color: #545454;
+    position: sticky;
+    top: 168px;
+}
+
+.EmpLogs-container {
+    margin: 14px auto 8vh auto;
+    display: flex;
+    flex-direction: column;
+    width: 86vw;
+    gap: 8px;
+}
