@@ -1,8 +1,14 @@
+import { useLocation } from "wouter";
 import "./style.css";
 
 const Employee = ({ imgUrl, atWork, firstName, lastName, id }) => {
+  const [_location, setLocation] = useLocation();
+
   return (
-    <div className={atWork ? "Employee Employee-online" : "Employee"}>
+    <div
+      onClick={() => setLocation(`/details/${id}`)}
+      className={atWork ? "Employee Employee-online" : "Employee"}
+    >
       <div className="Employee-first">
         <div className="Employee-photo">
           <img src={imgUrl} />
