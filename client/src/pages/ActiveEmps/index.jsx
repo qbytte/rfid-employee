@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Header, Employee, Footer } from "../../components";
 import { database } from "../../firebase/config";
-import { ref, onValue, set } from "firebase/database";
+import { ref, onValue } from "firebase/database";
 import "./styles.css";
 
 const ActiveEmployees = () => {
