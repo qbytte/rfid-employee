@@ -34,8 +34,6 @@ const Form = ({ edit, employee, id }) => {
   }, [employee]);
 
   const onSubmit = (values) => {
-    console.table(values);
-
     set(ref(database, `employees/${values.id}`), {
       firstName: values.firstName,
       lastName: values.lastName,
@@ -55,7 +53,6 @@ const Form = ({ edit, employee, id }) => {
   };
 
   const onUpdate = (values) => {
-    console.table(values);
     update(ref(database, `employees/${values.id}`), {
       firstName: values.firstName,
       lastName: values.lastName,

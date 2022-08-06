@@ -25,14 +25,10 @@ const Logs = () => {
               key: key,
             });
           }
-          console.log(data);
           array.reverse();
           setLogs(array);
           setExist(true);
-        } else {
-          setExist(false);
-          console.log("no hay logs");
-        }
+        } else setExist(false);
       })
       .catch((error) => {
         console.error(error);

@@ -18,14 +18,10 @@ const EditEmp = () => {
   const onSubmitImg = (file) => {
     const storageRef = refStorage(storage, params.id);
     uploadBytes(storageRef, file)
-      .then((_snapshot) => {
-        console.log(file);
-        console.log("Uploaded file");
-      })
+      .then((_snapshot) => {})
       .then(() => {
         getDownloadURL(storageRef)
           .then((url) => {
-            console.log(url);
             const dbRef = ref(database, `employees/${params.id}`);
             update(dbRef, { imgUrl: url });
             setEmployee({ ...employee, imgUrl: url });
@@ -41,12 +37,7 @@ const EditEmp = () => {
 
     get(child(dbRef, `employees/${params.id}`))
       .then((snapshot) => {
-        if (snapshot.exists()) {
-          setEmployee(snapshot.val());
-          console.log(snapshot.val());
-        } else {
-          console.log("No data available");
-        }
+        if (snapshot.exists()) setEmployee(snapshot.val());
       })
       .catch((error) => {
         console.log(error);

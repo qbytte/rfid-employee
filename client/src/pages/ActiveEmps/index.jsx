@@ -29,14 +29,12 @@ const ActiveEmployees = () => {
         setExist(true);
       } else {
         setExist(false);
-        console.log("no hay emps");
       }
     });
   };
 
   useEffect(() => {
     fetchData();
-    console.log(emps);
   }, []);
 
   return (
