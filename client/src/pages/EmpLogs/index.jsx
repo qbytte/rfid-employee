@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Header, LogComponent, Footer } from "../../components";
 import { database } from "../../firebase/config";
-import { ref, onValue } from "firebase/database";
+import { ref, child, get } from "firebase/database";
 import "./styles.css";
 
 const Logs = () => {
@@ -9,30 +9,34 @@ const Logs = () => {
   const [exist, setExist] = useState(false);
 
   const fetchData = () => {
-    const logsRef = ref(database, "logs/");
-    onValue(logsRef, (snapshot) => {
-      if (snapshot.exists()) {
-        const data = snapshot.val();
-        const array = [];
+    const logsRef = ref(database);
+    get(child(logsRef, "logs/"))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          const array = [];
 
-        for (const [key, value] of Object.entries(data)) {
-          array.push({
-            id: value.id,
-            shiftstart: value.start,
-            shiftend: value.finish,
-            date: value.date,
-            key: key,
-          });
+          for (const [key, value] of Object.entries(data)) {
+            array.push({
+              id: value.id,
+              shiftstart: value.start,
+              shiftend: value.finish,
+              date: value.date,
+              key: key,
+            });
+          }
+          console.log(data);
+          array.reverse();
+          setLogs(array);
+          setExist(true);
+        } else {
+          setExist(false);
+          console.log("no hay logs");
         }
-        console.log(data);
-        array.reverse();
-        setLogs(array);
-        setExist(true);
-      } else {
-        setExist(false);
-        console.log("no hay logs");
-      }
-    });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {

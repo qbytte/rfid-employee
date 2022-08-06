@@ -19,17 +19,6 @@ const Footer = () => {
             </button>
           </li>
           <li>
-            <button
-              className="Footer-btn"
-              onClick={() => setLocation("/hours")}
-            >
-              <BsBarChartFill
-                size={32}
-                color={match === "/hours" ? "#343633" : "#8E8E8E"}
-              />
-            </button>
-          </li>
-          <li>
             <button className="Footer-btn" onClick={() => setLocation("logs")}>
               <FaDatabase
                 size={28}

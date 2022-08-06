@@ -5,7 +5,6 @@ import {
   EmpDetails,
   EmpLogs,
   RegisterEmp,
-  WorkedHours,
 } from "./pages";
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
       <Route path="/details/:id" component={EmpDetails} />
       <Route path="/logs" component={EmpLogs} />
       <Route path="/register" component={RegisterEmp} />
-      <Route path="/hours" component={WorkedHours} />
     </Switch>
   );
 }
