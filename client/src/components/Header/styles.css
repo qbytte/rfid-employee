@@ -1,6 +1,6 @@
 .Header {
   background: #343633;
-  height: 168px;
+  height: 200px;
   position: sticky;
   top: 0;
 }
@@ -20,6 +20,7 @@
 
 .Header-title {
   padding: 40px;
+  padding-top: 68px;
   color: #fffdfd;
   font-weight: 300;
   width: 300px;
